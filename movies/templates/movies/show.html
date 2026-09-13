@@ -38,6 +38,7 @@
               {{ review.date }}
             </h6>
             <p class="card-text">{{ review.comment }}</p>
+            <a class="btn btn-danger" href="{% url 'report_review' review.id %}"> Report</a>
             {% if user.is_authenticated and user == review.user %}
             <a class="btn btn-primary" href="{% url 'movies.edit_review' id=template_data.movie.id review_id=review.id %}">Edit
             </a>
@@ -76,8 +77,7 @@
         {% endif %}
       </div>
       <div class="col-md-6 mx-auto mb-3 text-center">
-        <img src="{{ template_data.movie.image.url }}"
-          class="rounded img-card-400" />
+        <img src="{{ template_data.movie.image.url }}" class="rounded img-card-400" />
       </div>
     </div>
   </div>
